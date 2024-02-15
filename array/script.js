@@ -68,14 +68,18 @@ function newNumber(num) {
     if (Number(str[i]) % 2 !== 0) {
       newStr += Number(str[i]);
     } else {
-      newStr += `${Number(str[i])}-`;
+      newStr += `-${Number(str[i])}`;
     }
   }
 
-  return newStr.slice(0, newStr.length - 1);
+  if (newStr[0] === "-") {
+    return newStr.slice(1);
+  } else {
+    return newStr;
+  }
 }
 
-console.log(newNumber(449076213));
+console.log(newNumber(102345622));
 
 console.log("----------------------------");
 
