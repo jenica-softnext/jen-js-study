@@ -150,6 +150,30 @@ console.log(
   `// 11. Write a JavaScript program to compute the sum and product of an array of integers.`
 );
 
+function getArrSum(arr) {
+  let sum = 0;
+  for (let i = 0; i <= arr.length - 1; i++) {
+    sum += arr[i];
+  }
+
+  return sum;
+}
+
+function getArrProduct(arr) {
+  let product = 1;
+  for (let i = 0; i <= arr.length - 1; i++) {
+    product *= arr[i];
+  }
+
+  return product;
+}
+
+function getSumAndProduct(arr) {
+  return `${arr} has a sum of ${getArrSum(arr)} and a product of ${getArrProduct(arr)}.`;
+}
+
+console.log(getSumAndProduct([2, 7, 1, 4, 5]));
+
 console.log("----------------------------");
 
 /*12. Write a JavaScript program to add items to a blank array and display them.*/
@@ -238,3 +262,16 @@ const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 const citrus = fruits.slice(1, 3);
 
 console.log(citrus);
+
+const friends = ["Dennis", "Lavinia", "Ryan", "Evelyn"];
+
+console.log(friends);
+
+friends[3] = "Lara";
+console.log(friends);
+
+friends[4] = "Veia";
+console.log(friends);
+
+friends[6] = "Mavoc";
+console.log(friends);
