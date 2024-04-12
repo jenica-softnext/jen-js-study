@@ -14,9 +14,7 @@ console.log(getTypeOf(7));
 console.log("----------------------------"); /* */
 
 /*2. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.*/
-console.log(
-  `// 2. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.`
-);
+console.log(`// 2. Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word into upper case.`);
 
 function capitalizeStr(str) {
   let strings = str.split(" ");
@@ -182,3 +180,45 @@ console.log("----------------------------");
 console.log(`// 14. Write a function to combine unlimited arrays`);
 
 console.log("----------------------------");
+
+// UDEMY - SECTION !0
+
+function testlang(lName = "Den", age = `${lName} is 28`, job = `operator`) {
+  const castillo = {
+    lName,
+    age,
+    job,
+  };
+
+  console.log(castillo);
+}
+
+testlang();
+testlang("Jen", undefined, "web designer");
+
+// How Passing Arguments Works: Value VS. Reference
+
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
+};
+
+console.log(oneWord("J e nI   C     a"));
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+
+  return [first.toUpperCase(), ...others].join(" ");
+};
+
+console.log(upperFirstWord("dennis castillo"));
+
+// create higher order function
+
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`JavaScript is the best: ${fn.name}`);
+};
+
+transformer("JavaScript is the best", upperFirstWord);
+transformer("JavaScript is the best", oneWord);

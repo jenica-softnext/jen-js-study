@@ -413,5 +413,4 @@ checkMiddleSeat("13F");
 checkMiddleSeat("9A");
 // working with strings 2
 
-
 // working with strings 3
