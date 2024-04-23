@@ -37,16 +37,52 @@
 // data. Use both the 'array' and the 'string' option. Do not put the arrays in the poll
 // object! So what should the this keyword look like in this situation?
 
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    const selectedOption = prompt(`${poll.question}\n${this.options.join(`\n`)}\n(Write option number)`);
+    const selected = Number(selectedOption);
+    if (selectedOption !== "" && Number(selected >= 0) && Number(selected <= this.options.length - 1)) {
+      this.answers[selectedOption]++;
+      this.displayResults();
+      this.displayResults("string");
+    } else {
+      alert("Please choose between: 0, 1, 2, and 3 only!");
+      this.registerNewAnswer();
+    }
+  },
+
+  displayResults(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log(`Poll results are ${this.answers.join(", ")}`);
+    }
+  },
+};
+
+document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer.bind(poll));
+
 // Test data for bonus:
 // § Data 1: [5, 2, 3]
 // § Data 2: [1, 5, 3, 9, 6, 1]
 
+poll.displayResults.call(
+  {
+    answers: [5, 2, 3],
+  },
+  "string"
+);
+
+poll.displayResults.call(
+  {
+    answers: [1, 5, 3, 9, 6, 1],
+  },
+  "string"
+);
+
 // Hints: Use many of the tools you learned about in this and the last section
 // GOOD LUCK
-
-const poll = {
-  question: "What is your favourite programming language?",
-  options: ["0:JavaScript", "1:Python", "2: Rust", "3:C++"],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-};
