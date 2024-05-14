@@ -490,3 +490,16 @@ const fromArr2 = [1, 2, 3, 4, 5, 6, 7];
 
 const z = Array.from({length: 7}, (_, i) => i);
 console.log(z);
+
+const lol = [1, 6, 5, 3, 13, 36, 474, 21];
+
+const newst = lol.filter((l) => {
+  l < 7;
+});
+
+const jbheiuob = lol.filter((i) => {
+  i < 7;
+});
+
+console.log(newst);
+console.log(jbheiuob);
